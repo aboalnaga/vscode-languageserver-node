@@ -580,7 +580,7 @@ export function createConverter(uriConverter?: URIConverter): Converter {
 		if (!values) {
 			return undefined;
 		}
-		return values.map(information => asSymbolInformation(information, uri));
+		return values.filter(information => !!information.name).map(information => asSymbolInformation(information, uri));
 	}
 
 	function asSymbolKind(item: ls.SymbolKind): code.SymbolKind {
